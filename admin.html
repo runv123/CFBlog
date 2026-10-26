@@ -1,0 +1,208 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="MBLog 管理后台">
+  <title>管理后台 · MBLog</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">MBLog<span>.</span></a>
+    <nav class="main-nav" aria-label="管理导航">
+      <a href="index.html">查看网站</a>
+      <a href="blog.html">文章</a>
+      <a href="portfolio.html">作品</a>
+    </nav>
+    <button id="logout-button" class="quiet" type="button" hidden>
+      退出登录
+    </button>
+  </header>
+
+  <main class="container admin-container">
+    <section class="page-header">
+      <p class="eyebrow">MBLOG CONTROL PANEL</p>
+      <h1>管理后台</h1>
+      <p>管理文章、草稿与作品。</p>
+    </section>
+
+    <p id="admin-message" class="notice" role="status" hidden></p>
+
+    <section id="login-panel" class="admin-panel">
+      <h2>管理员登录</h2>
+      <p class="muted">请输入部署时设置的管理员密码。</p>
+
+      <form id="login-form">
+        <div class="form-field">
+          <label for="admin-password">管理员密码</label>
+          <input id="admin-password" name="password"
+            type="password" autocomplete="current-password"
+            required minlength="1" maxlength="256">
+        </div>
+        <button class="button" type="submit" id="login-button">
+          登录
+        </button>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="admin-tabs" role="tablist" aria-label="管理内容">
+        <button type="button" class="admin-tab active"
+          data-tab="posts" role="tab" aria-selected="true">
+          文章管理
+        </button>
+        <button type="button" class="admin-tab"
+          data-tab="projects" role="tab" aria-selected="false">
+          作品管理
+        </button>
+      </div>
+
+      <section id="posts-panel" class="admin-panel">
+        <div class="admin-section-heading">
+          <div>
+            <h2>文章管理</h2>
+            <p class="muted">创建、编辑、保存草稿或发布文章。</p>
+          </div>
+          <button type="button" id="new-post-button" class="button">
+            新建文章
+          </button>
+        </div>
+
+        <form id="post-form" hidden>
+          <input id="post-id" type="hidden">
+
+          <div class="form-field">
+            <label for="post-title">文章标题 *</label>
+            <input id="post-title" maxlength="180" required
+              placeholder="输入文章标题">
+          </div>
+
+          <div class="form-field">
+            <label for="post-slug">文章 Slug *</label>
+            <input id="post-slug" maxlength="180" required
+              pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
+              placeholder="my-first-post">
+            <small class="muted">
+              默认根据标题生成，可自行修改。仅允许小写英文字母、数字和连字符。
+            </small>
+          </div>
+
+          <div class="form-field">
+            <label for="post-summary">文章摘要</label>
+            <textarea id="post-summary" rows="3" maxlength="500"
+              placeholder="简要介绍文章内容"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="post-content">文章正文 *</label>
+            <textarea id="post-content" rows="14" required
+              maxlength="100000" placeholder="在这里写下文章正文……"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="post-status">发布状态</label>
+            <select id="post-status">
+              <option value="draft">保存为草稿</option>
+              <option value="published">立即发布</option>
+            </select>
+          </div>
+
+          <div class="button-row">
+            <button id="save-post-button" class="button" type="submit">
+              保存文章
+            </button>
+            <button id="cancel-post-button" class="quiet" type="button">
+              取消编辑
+            </button>
+          </div>
+        </form>
+
+        <div id="posts-list" class="admin-list">
+          <p class="muted">正在加载文章……</p>
+        </div>
+      </section>
+
+      <section id="projects-panel" class="admin-panel" hidden>
+        <div class="admin-section-heading">
+          <div>
+            <h2>作品管理</h2>
+            <p class="muted">维护项目介绍、作品链接和公开状态。</p>
+          </div>
+          <button type="button" id="new-project-button" class="button">
+            新建作品
+          </button>
+        </div>
+
+        <form id="project-form" hidden>
+          <input id="project-id" type="hidden">
+
+          <div class="form-field">
+            <label for="project-title">作品名称 *</label>
+            <input id="project-title" maxlength="180" required>
+          </div>
+
+          <div class="form-field">
+            <label for="project-slug">作品 Slug *</label>
+            <input id="project-slug" maxlength="180" required
+              pattern="[a-z0-9]+(?:-[a-z0-9]+)*">
+          </div>
+
+          <div class="form-field">
+            <label for="project-category">作品分类</label>
+            <input id="project-category" maxlength="80"
+              placeholder="例如：网站、工具、开源项目">
+          </div>
+
+          <div class="form-field">
+            <label for="project-summary">作品摘要</label>
+            <textarea id="project-summary" rows="3" maxlength="500"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="project-content">作品详情 *</label>
+            <textarea id="project-content" rows="10" required
+              maxlength="100000"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="project-url">项目网址（可选）</label>
+            <input id="project-url" type="url" maxlength="2048"
+              placeholder="https://example.com">
+          </div>
+
+          <div class="form-field">
+            <label for="project-status">公开状态</label>
+            <select id="project-status">
+              <option value="draft">保存为草稿</option>
+              <option value="published">公开展示</option>
+            </select>
+          </div>
+
+          <div class="button-row">
+            <button id="save-project-button" class="button" type="submit">
+              保存作品
+            </button>
+            <button id="cancel-project-button" class="quiet" type="button">
+              取消编辑
+            </button>
+          </div>
+        </form>
+
+        <div id="projects-list" class="admin-list">
+          <p class="muted">正在加载作品……</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span data-year>2026</span> MBLog</p>
+    <p>管理员专用页面</p>
+  </footer>
+</body>
+</html>
