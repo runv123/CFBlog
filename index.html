@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="MBLog 个人博客，记录想法，分享创造。">
+  <title>MBLog · 记录想法，分享创造</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MBLog 首页">
+      MBLog<span>.</span>
+    </a>
+
+    <nav class="main-nav" aria-label="主导航">
+      <a href="index.html" aria-current="page">首页</a>
+      <a href="blog.html">文章</a>
+      <a href="portfolio.html">作品</a>
+      <a href="about.html">关于</a>
+    </nav>
+
+    <button
+      id="theme-toggle"
+      class="quiet theme-toggle"
+      type="button"
+      aria-label="切换页面主题"
+    >
+      <span id="theme-label">切换主题</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">PERSONAL BLOG</p>
+      <h1>记录想法，<br>分享创造。</h1>
+      <p class="hero-description">
+        一个轻量、简洁的个人博客。
+        在这里记录文章、展示作品，也记录成长。
+      </p>
+
+      <div class="button-row">
+        <a class="button" href="blog.html">浏览文章</a>
+        <a class="quiet" href="about.html">了解 MBLog →</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LATEST STORIES</p>
+          <h2>最新文章</h2>
+        </div>
+        <a href="blog.html">查看全部 →</a>
+      </div>
+
+      <div id="latest-posts" class="post-grid" aria-live="polite">
+        <p class="muted">正在加载文章……</p>
+      </div>
+    </section>
+
+    <section class="welcome-panel">
+      <p class="eyebrow">WELCOME TO MBLOG</p>
+      <h2>让每一次记录都有意义。</h2>
+      <p class="muted">
+        通过简洁的文章管理工具，整理想法，
+        分享经验，并持续记录自己的创作过程。
+      </p>
+      <a href="portfolio.html">看看我的作品 →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span data-year>2026</span> MBLog</p>
+    <p>用心记录，持续创造。</p>
+  </footer>
+</body>
+</html>
