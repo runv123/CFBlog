@@ -511,3 +511,152 @@ select:focus-visible {
     line-height: 1.9;
   }
 }
+
+
+/* MBLog admin panel */
+
+.admin-container {
+  padding-bottom: 60px;
+}
+
+.admin-panel {
+  margin: 0 0 28px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.admin-panel h2 {
+  margin-top: 0;
+}
+
+.admin-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.admin-section-heading h2 {
+  margin-bottom: 4px;
+}
+
+.admin-section-heading p {
+  margin-top: 0;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.admin-tab {
+  min-height: 42px;
+  padding: 8px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.admin-tab.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.admin-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.admin-item h3 {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.admin-item p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.admin-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-item-actions button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.admin-item-actions button:hover {
+  border-color: var(--accent);
+}
+
+.admin-status {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.admin-status.published {
+  color: var(--accent);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .admin-section-heading,
+  .admin-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-item-actions {
+    flex-shrink: 1;
+  }
+
+  .admin-tabs {
+    width: 100%;
+  }
+
+  .admin-tab {
+    flex: 1;
+    padding-inline: 8px;
+  }
+}
