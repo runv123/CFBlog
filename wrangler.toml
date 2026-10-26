@@ -6,5 +6,5 @@ compatibility_date = "2026-10-26"
 [[d1_databases]]
 binding = "DB"
 database_name = "mblog-db"
-database_id = "替换成你的真实D1数据库ID"
+database_id = "aabb65b0-575b-4dbc-bafb-117e3df2f648"
 migrations_dir = "migrations"
