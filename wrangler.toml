@@ -1,0 +1,10 @@
+
+name = "mblog"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-26"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mblog-db"
+database_id = "替换成你的真实D1数据库ID"
+migrations_dir = "migrations"
